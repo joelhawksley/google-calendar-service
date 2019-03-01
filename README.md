@@ -37,7 +37,7 @@ Aws::Lambda::Client.new.invoke({
       calendar_ref: "google_calendar@google.com",
       credential_options: {
         client_id: "google_client_id",
-        scope: "email #{Google::Apis::CalendarV3::AUTH_CALENDAR_READONLY}",
+        scope: "email https://www.googleapis.com/auth/calendar.readonly",
         client_secret: "google_client_secret",
         refresh_token: "google_refresh_token",
         additional_parameters: {"access_type" => "offline"}
