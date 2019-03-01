@@ -36,7 +36,6 @@ def fetch_events(calendar_ref, credential_options)
   items =
     service.list_events(
       calendar_ref,
-      max_results: 100,
       single_events: true,
       order_by: 'startTime',
       time_min: (Date.today - 14).to_datetime.iso8601
@@ -53,7 +52,7 @@ def fetch_events(calendar_ref, credential_options)
     if event_json["start"].key?("date")
       out["start_date"] = event_json["start"]["date"]
 
-      # Google always puts the end date as the next day. This is dumb.
+      # Google always puts the end date as the next day. This doesn't make sense.
       # If an event is a single day, it should start *and* and on the same date.
       out["end_date"] = (Date.parse(event_json["end"]["date"]) - 1).to_s
     else

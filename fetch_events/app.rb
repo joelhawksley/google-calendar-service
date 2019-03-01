@@ -36,7 +36,6 @@ def fetch_events(calendar_ref, credential_options)
   items =
     service.list_events(
       calendar_ref,
-      max_results: 100,
       single_events: true,
       order_by: 'startTime',
       time_min: (Date.today - 14).to_datetime.iso8601
