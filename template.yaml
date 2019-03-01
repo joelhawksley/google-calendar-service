@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    google-calendar-service
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+    Function:
+        Timeout: 60
+
+
+Resources:
+    FetchEventsFunction:
+        Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+        Properties:
+            CodeUri: fetch_events/
+            Handler: app.lambda_handler
+            Runtime: ruby2.5
+
+Outputs:
+    FetchEventsFunction:
+      Description: "Fetch Events Lambda Function ARN"
+      Value: !GetAtt FetchEventsFunction.Arn
+
+    FetchEventsFunctionIamRole:
+      Description: "Implicit IAM Role created for Fetch Events function"
+      Value: !GetAtt FetchEventsFunctionRole.Arn

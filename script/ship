@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "build"
+sam build
+
+echo "package"
+sam package --output-template-file packaged.yaml --s3-bucket timeframe-google-calendar-service
+
+echo "deploy"
+sam deploy --template-file packaged.yaml --stack-name google-calendar-service --capabilities CAPABILITY_IAM --region us-west-2
