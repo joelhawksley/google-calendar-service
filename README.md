@@ -24,3 +24,27 @@ bundle
 ```bash
 ruby tests/unit/test_handler.rb
 ```
+
+### Usage
+
+```ruby
+Aws::Lambda::Client.new.invoke({
+  function_name: "lambda:arn",
+  invocation_type: "Event",
+  log_type: "None",
+  payload: {
+    config: {
+      calendar_ref: "google_calendar@google.com",
+      credential_options: {
+        client_id: "google_client_id",
+        scope: SCOPE,
+        client_secret: "google_client_secret",
+        refresh_token: "google_refresh_token",
+        additional_parameters: {"access_type" => "offline"}
+      },
+      callback_secret: "my_shared_key",
+      callback_url: "my_callback_url"
+    },
+  }.to_json
+})
+```
