@@ -1,6 +1,8 @@
 # google-calendar-service
 
-Fetches a Google calendar and posts formatted events to a callback URL.
+Fetches a Google calendar and POSTs formatted events for the next two weeks to a callback URL.
+
+Based on http://blog.blackninjadojo.com/aws/serverless/2019/02/18/build-package-and-deploy-an-aws-lambda-using-the-ruby-runtime.html.
 
 ## Requirements
 
