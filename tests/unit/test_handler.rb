@@ -56,9 +56,9 @@ class HelloWorldTest < Test::Unit::TestCase
           "end_date"=>"2019-02-28"
         }
 
-        event_two_correct = body["events"][1] == event_one
+        event_two_correct = body["events"][1] == event_two
 
-        url_correct && secret_correct && event_one_correct
+        url_correct && secret_correct && event_one_correct && event_two_correct
       end
 
       lambda_handler(event: event)

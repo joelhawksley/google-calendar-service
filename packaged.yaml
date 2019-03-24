@@ -21,7 +21,7 @@ Outputs:
 Resources:
   FetchEventsFunction:
     Properties:
-      CodeUri: s3://timeframe-google-calendar-service/826d740af976b0c6fbb86d765b63a1c3
+      CodeUri: s3://timeframe-google-calendar-service/b99cf16d614d3ffa46da6dbf24df3641
       Handler: app.lambda_handler
       Runtime: ruby2.5
     Type: AWS::Serverless::Function
