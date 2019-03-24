@@ -44,11 +44,11 @@ def fetch_events(calendar_ref, credential_options)
   items.each_with_index do |event, index|
     event_json = JSON.parse(event.to_json)
 
-    out = event_json.slice("summary", "location")
+    out = event_json.dup.keep_if { |key| ["summary", "location"].include?(key) }
 
     out["title"] = event_json["summary"]
     out["location"] = event_json["location"] || ""
-
+    
     if event_json["start"].key?("date")
       out["start_date"] = event_json["start"]["date"]
 
