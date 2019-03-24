@@ -12,8 +12,10 @@ Based on http://blog.blackninjadojo.com/aws/serverless/2019/02/18/build-package-
 
 ## Setup process
 
+`rvm use 2.5.0`
+
 ```
-gem install bundler
+gem install bundler -v '1.17.3'
 bundle
 ```
 
